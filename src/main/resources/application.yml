@@ -1,0 +1,12 @@
+server:
+  port: 8099
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/XXX?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: zxd2839182980.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  mapper-locations: classpath:mapperXml/*.xml
