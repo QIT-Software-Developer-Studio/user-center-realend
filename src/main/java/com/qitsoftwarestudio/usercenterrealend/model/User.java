@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
+import java.util.Timer;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -22,6 +23,31 @@ public class User implements Serializable {
 
     @ApiModelProperty(value = "用户名")
     private String username;
+
+    private String userAccount;
+
+    private String avatarUrl;
+
+    private Integer gender;
+
+    private String userPassword;
+
+    private String phone;
+
+    private String email;
+
+    private String userStatus;
+
+    private Timer createTime;
+
+    private Timer updateTime;
+
+    private Timer isDelete;
+
+    private Integer userRole;
+
+    private Integer planetCode;
+
 
 
 }
