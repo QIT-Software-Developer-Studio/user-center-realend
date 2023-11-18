@@ -2,16 +2,16 @@
  * Copyright (c) 2023.
  * Project: user-center-realend
  * File: ResultUtils.java
- * Last date: 2023/11/16 上午12:35
+ * Last date: 2023/11/18 下午5:36
  * Developer: KingYen
  *
- * Created by KingYen on 2023/11/16 0:35:9.
+ * Created by KingYen on 2023/11/18 17:36:46.
  */
 
 package com.qitsoftwarestudio.usercenterrealend.utils;
 
 import com.qitsoftwarestudio.usercenterrealend.common.BaseResponse;
-import com.qitsoftwarestudio.usercenterrealend.common.RequestCode;
+import com.qitsoftwarestudio.usercenterrealend.common.ErrorCode;
 import lombok.Data;
 
 @Data
@@ -24,17 +24,49 @@ public class ResultUtils {
      * @return
      */
     public static <T> BaseResponse<T> success(T data) {
-        return new BaseResponse(0, "ok", data);
+        return new BaseResponse(0, "ok", data, "success");
     }
 
     /**
-     * Fail
+     * Failures
      *
-     * @param requestCode
+     * @param errorCode
      * @return
      */
-    public static BaseResponse error(RequestCode requestCode) {
-        return new BaseResponse<>(requestCode);
+    public static BaseResponse error(ErrorCode errorCode) {
+        return new BaseResponse<>(errorCode);
+    }
+
+    /**
+     * Failures
+     *
+     * @param code
+     * @param message
+     * @param description
+     * @return
+     */
+    public static BaseResponse error(int code, String message, String description) {
+        return new BaseResponse(code, message, null, description);
+    }
+
+    /**
+     * Failures
+     *
+     * @param errorCode
+     * @return
+     */
+    public static BaseResponse error(ErrorCode errorCode, String message, String description) {
+        return new BaseResponse(errorCode.getCode(), message, null, description);
+    }
+
+    /**
+     * Failures
+     *
+     * @param errorCode
+     * @return
+     */
+    public static BaseResponse error(ErrorCode errorCode, String description) {
+        return new BaseResponse(errorCode.getCode(), errorCode.getMessage(), description);
     }
 
 }
